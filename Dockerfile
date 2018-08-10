@@ -6,7 +6,7 @@ ARG uid=2000
 ARG gid=33
 
 ENV JENKINS_HOME /home/jenkins
-ENV PATH "$PATH:/opt/android_tools/android-ndk-r14b:/opt/android_tools/android-sdk-linux"
+ENV PATH "$PATH:/opt/android_tools/android-ndk-r16b:/opt/android_tools/android-sdk-linux"
 
 RUN useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
