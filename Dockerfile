@@ -11,7 +11,7 @@ ENV PATH "$PATH:/opt/android_tools/android-ndk-r16b:/opt/android_tools/android-s
 RUN useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
 RUN apt-get -y update && \
-    apt-get -y install unzip tar curl openssh-server git && \
+    apt-get -y install unzip tar curl openssh-server git zip && \
     apt-get clean
 
 RUN sed -i 's|session required pam_loginuid.so|session optional pam_loginuid.so|g' /etc/pam.d/sshd
@@ -21,7 +21,3 @@ RUN echo "jenkins:jenkins" | chpasswd
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
-
-
-
-
